@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="property"
+            type="com.example.videogamesdatabase.network.GameProperty" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_grid_view_item">
+
+        <ImageView
+            android:id="@+id/gamesDataImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            imageUrl="@{property.imgSrcUrl}"
+            tools:src="@tools:sample/backgrounds/scenic"/>
+
+
+
+
+    </FrameLayout>
+</layout>

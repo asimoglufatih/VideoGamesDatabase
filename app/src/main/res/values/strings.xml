@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">VideoGamesDatabase</string>
+    <string name="name">%s</string>
+    <string name="destination">Destination: %s</string>
+
+
+</resources>
