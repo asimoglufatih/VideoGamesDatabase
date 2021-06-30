@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.videogamesdatabase.databinding.GridViewItemBinding
 import com.example.videogamesdatabase.network.GameProperty
 
-class GridAdapter(): ListAdapter<GameProperty, GridAdapter.GamePropertyViewHolder>(DiffCallBack) {
+class GridAdapter(private val onClickListener: OnClickListener
+    ): ListAdapter<GameProperty, GridAdapter.GamePropertyViewHolder>(DiffCallBack) {
     class GamePropertyViewHolder(private var binding: GridViewItemBinding):
             RecyclerView.ViewHolder(binding.root){
                 fun bind(gameProperty: GameProperty){
@@ -40,6 +41,13 @@ class GridAdapter(): ListAdapter<GameProperty, GridAdapter.GamePropertyViewHolde
         position: Int
     ) {
         val gameProperty = getItem(position)
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(gameProperty)
+        }
         holder.bind(gameProperty)
     }
+}
+
+class OnClickListener(val clickListener: (gameProperty:GameProperty) -> Unit) {
+    fun onClick(gameProperty: GameProperty) = clickListener(gameProperty)
 }

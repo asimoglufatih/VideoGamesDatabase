@@ -22,6 +22,10 @@ class HomeViewModel: ViewModel(){
     val properties: LiveData<List<GameProperty>>
         get() = _properties
 
+    private val _navigateToSelectedProperty = MutableLiveData<GameProperty>()
+    val navigateToSelectedProperty: LiveData<GameProperty>
+        get() = _navigateToSelectedProperty
+
     init{
         getGamesProperties()
     }
@@ -39,5 +43,15 @@ class HomeViewModel: ViewModel(){
             }
         }
     }
+
+    fun displayPropertyDetails(gameProperty: GameProperty){
+        _navigateToSelectedProperty.value = gameProperty
+    }
+
+    fun displayPropertyDetailsComplete(){
+        _navigateToSelectedProperty.value = null
+    }
+
+
 
 }

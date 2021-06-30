@@ -6,11 +6,15 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Headers
 
 //https://rawg-video-games-database.p.rapidapi.com/
 //ttps://google-reverse-image-search.p.rapidapi.com/
 //https://raw.githubusercontent.com/
 //Oclemy/SampleJSON/338d9585/spacecrafts.json
+//AddHeader("x-rapidapi-key", "f73d634222msh5a53ecc41a7ec12p19350bjsn69d00ddbd6cb")
+
+
 private const val BASE_URL = "https://raw.githubusercontent.com/"
 
 
@@ -26,6 +30,7 @@ private val retrofit = Retrofit.Builder()
 
 interface ApiService {
     @GET("Oclemy/SampleJSON/338d9585/spacecrafts.json")
+//    @Headers("x-rapidapi-key","f73d634222msh5a53ecc41a7ec12p19350bjsn69d00ddbd6cb")
     suspend fun getProperties():
             List<GameProperty>
 }
