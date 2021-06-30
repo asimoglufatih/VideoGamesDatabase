@@ -12,7 +12,6 @@ import retrofit2.http.Header
 //https://raw.githubusercontent.com/
 //Oclemy/SampleJSON/338d9585/spacecrafts.json
 private const val BASE_URL = "https://raw.githubusercontent.com/"
-private val key = "f73d634222msh5a53ecc41a7ec12p19350bjsn69d00ddbd6cb"
 
 
 private val moshi = Moshi.Builder()
