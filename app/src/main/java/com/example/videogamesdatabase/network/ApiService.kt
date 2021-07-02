@@ -8,8 +8,10 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Headers
 
+
+//?key=dec0e3a64297439f993ce0ae70b3210e
+
 //https://rawg-video-games-database.p.rapidapi.com/
-//ttps://google-reverse-image-search.p.rapidapi.com/
 //https://raw.githubusercontent.com/
 //Oclemy/SampleJSON/338d9585/spacecrafts.json
 //AddHeader("x-rapidapi-key", "f73d634222msh5a53ecc41a7ec12p19350bjsn69d00ddbd6cb")
@@ -30,7 +32,8 @@ private val retrofit = Retrofit.Builder()
 
 interface ApiService {
     @GET("Oclemy/SampleJSON/338d9585/spacecrafts.json")
-//    @Headers("x-rapidapi-key","f73d634222msh5a53ecc41a7ec12p19350bjsn69d00ddbd6cb")
+//    @Headers("x-rapidadi-key: dec0e3a64297439f993ce0ae70b3210e",
+//    "x-rapidapi-host: rawg-video-games-database.p.rapidapi.com")
     suspend fun getProperties():
             List<GameProperty>
 }

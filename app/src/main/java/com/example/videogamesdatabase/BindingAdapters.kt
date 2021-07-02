@@ -5,6 +5,7 @@ import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.videogamesdatabase.home.ApiServiceStatus
@@ -64,5 +65,11 @@ import com.example.videogamesdatabase.network.GameProperty
     @BindingAdapter("listData")
     fun bindRecyclerView(recyclerView: RecyclerView, data: List<GameProperty>?) {
         val adapter = recyclerView.adapter as GridAdapter
+        adapter.submitList(data)
+    }
+
+    @BindingAdapter("listData")
+    fun bindViewPager(viewPager2: ViewPager2, data: List<GameProperty>?){
+        val adapter = viewPager2.adapter as GridAdapter
         adapter.submitList(data)
     }

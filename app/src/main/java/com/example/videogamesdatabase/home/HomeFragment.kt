@@ -24,15 +24,27 @@ class HomeFragment : Fragment() {
         val binding = FragmentHomeBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.homeFragmentViewModel = viewModel
-            binding.gamePhotosGrid.adapter = GridAdapter(OnClickListener{
-                viewModel.displayPropertyDetails(it)
-                viewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer{
-                    if(null != it){
-                        this.findNavController().navigate(HomeFragmentDirections.actionShowDetail(it))
-                        viewModel.displayPropertyDetailsComplete()
-                    }
-                })
+
+        binding.viewPager.adapter = GridAdapter(OnClickListener {
+            viewModel.displayPropertyDetails(it)
+            viewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer {
+                if(null != it){
+                    this.findNavController().navigate(HomeFragmentDirections.actionShowDetail(it))
+                    viewModel.displayPropertyDetailsComplete()
+                }
             })
+        })
+
+
+        binding.gamePhotosGrid.adapter = GridAdapter(OnClickListener{
+            viewModel.displayPropertyDetails(it)
+            viewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer{
+                if(null != it){
+                    this.findNavController().navigate(HomeFragmentDirections.actionShowDetail(it))
+                    viewModel.displayPropertyDetailsComplete()
+                }
+            })
+        })
 
         return binding.root
 

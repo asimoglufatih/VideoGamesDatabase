@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="homeFragmentViewModel"
             type="com.example.videogamesdatabase.home.HomeViewModel" />
@@ -15,22 +16,63 @@
         android:layout_height="match_parent"
         tools:context="com.example.videogamesdatabase.MainActivity">
 
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            app:layout_constraintBottom_toTopOf="@id/relativeLayout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black"
+            android:layout_marginBottom="@dimen/margin_home"
+            app:layout_constraintTop_toBottomOf="@id/searchView"
+            app:layout_constraintBottom_toTopOf="@id/relativeLayout"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_image_home"
+            android:layout_margin="@dimen/margin_home"
+            android:background="@color/light_grey"
+            app:layout_constraintTop_toBottomOf="@id/searchView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/light_grey"
+                app:listData="@{homeFragmentViewModel.properties}"
+                tools:listitem="@layout/viewpager_view_item" />
+
+
+        </RelativeLayout>
+
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/gamePhotosGrid"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:clipToPadding="false"
+            android:layout_marginTop="@dimen/margin_home"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relativeLayout"
             app:listData="@{homeFragmentViewModel.properties}"
-            app:spanCount="2"
-            tools:itemCount="16"
-            tools:listitem="@layout/grid_view_item"
-
-            />
+            app:spanCount="1"
+            tools:listitem="@layout/grid_view_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

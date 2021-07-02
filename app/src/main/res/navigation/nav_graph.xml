@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/favouritesFragment"
-        android:name="com.example.videogamesdatabase.FavouritesFragment"
+        android:name="com.example.videogamesdatabase.favourites.FavouritesFragment"
         android:label="fragment_favourites"
         tools:layout="@layout/fragment_favourites" />
 

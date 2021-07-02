@@ -10,21 +10,50 @@
             type="com.example.videogamesdatabase.network.GameProperty" />
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_grid_view_item">
+        android:layout_height="@dimen/height_grid_view_item"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp">
 
         <ImageView
             android:id="@+id/gamesDataImage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
+            android:scaleType="centerInside"
             imageUrl="@{property.imgSrcUrl}"
             tools:src="@tools:sample/backgrounds/scenic"/>
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/gamesDataName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toEndOf="@+id/gamesDataImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="20sp"
+            android:text="@{property.name}"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/gamesDataDestination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{property.destination}"
+            app:layout_constraintStart_toEndOf="@+id/gamesDataImage"
+            app:layout_constraintTop_toBottomOf="@+id/gamesDataName"/>
 
 
 
-    </FrameLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
